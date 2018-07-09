@@ -365,8 +365,8 @@ int main() {
               x_point += ref_x;
               y_point += ref_y;
 
-              next_x_vals.push_back(x_point)
-              next_y_vals.push_back(y_point)
+              next_x_vals.push_back(x_point);
+              next_y_vals.push_back(y_point);
 
             }
 
