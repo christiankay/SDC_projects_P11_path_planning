@@ -297,9 +297,9 @@ int main() {
 
             // In frenet add eenly 30m spced points ahead of the starting ref_y
 
-            vector<double> next_wp0 = getXY(car_s+30,(2+4*lane), map_waypoints_s, map_waypoints_x, map_waypoints_y);
-            vector<double> next_wp1 = getXY(car_s+60,(2+4*lane), map_waypoints_s, map_waypoints_x, map_waypoints_y);
-            vector<double> next_wp2 = getXY(car_s+90,(2+4*lane), map_waypoints_s, map_waypoints_x, map_waypoints_y);
+            vector<double> next_wp0 = getXY(car_s+30,(2+4*&lane), map_waypoints_s, map_waypoints_x, map_waypoints_y);
+            vector<double> next_wp1 = getXY(car_s+60,(2+4*&lane), map_waypoints_s, map_waypoints_x, map_waypoints_y);
+            vector<double> next_wp2 = getXY(car_s+90,(2+4*&lane), map_waypoints_s, map_waypoints_x, map_waypoints_y);
             //set x values
             ptsx.push_back(next_wp0[0]);
             ptsx.push_back(next_wp1[0]);
@@ -340,7 +340,7 @@ int main() {
 
             // calc how to split up spline points to travel at desired ref velocity
             double target_x = 30.0;
-            double target_y = s(target_x)
+            double target_y = s(target_x);
             double target_dist = sqrt((target_x)*(target_x)+(target_y)*(target_y));
 
             double x_add_on = 0;
@@ -349,7 +349,7 @@ int main() {
 
             for(int i = 0; i <= 50 - prev_path_size; i++)
             {
-              double N =  (target_dist/(.02*ref_vel/2.24));
+              double N =  (target_dist/(.02*&ref_vel/2.24));
               double x_point = x_add_on+(target_x)/N;
               double y_point = s(x_point);
 
