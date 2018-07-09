@@ -351,7 +351,7 @@ int main() {
             {
               double N =  (target_dist/(.02*ref_vel/2.24));
               double x_point = x_add_on+(target_x)/N;
-              double y_point = s(x_point)
+              double y_point = s(x_point);
 
               x_add_on = x_point;
 
