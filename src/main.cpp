@@ -248,7 +248,7 @@ int main() {
           	double end_path_s = j[1]["end_path_s"];
           	double end_path_d = j[1]["end_path_d"];
 
-          	// Sensor Fusion Data, a list of all other cars on the same side of the road.
+      // Sensor Fusion Data, a list of all other cars on the same side of the road.
 			// The data format for each car is: [ id, x, y, vx, vy, s, d]
           	auto sensor_fusion = j[1]["sensor_fusion"];
 
@@ -307,7 +307,8 @@ int main() {
 			}
 
 			// Modulate the speed to avoid collisions. Change lanes if it is safe to do so (nobody to the side)
-			double acc = 0.224;
+			double acc = 0.115;
+      double throttle = 0.225;
 			double max_speed = 49.5;
 			if (too_close) {
 				// A car is ahead
@@ -320,7 +321,7 @@ int main() {
 					lane--;
 				} else {
 					// Nowhere to shift -> slow down
-					ref_vel -= acc;
+					ref_vel -= throttle;
 				}
 			} else {
 				if (lane != 1) {
